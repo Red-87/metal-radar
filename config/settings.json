@@ -1,0 +1,23 @@
+{
+  "language": "it",
+  "preferred_regions": [
+    "Italy",
+    "Europe"
+  ],
+  "check_intervals": {
+    "high": 60,
+    "medium": 360,
+    "low": 1440
+  },
+  "notifications": {
+    "telegram": true,
+    "daily_summary": true
+  },
+  "news_filter": {
+    "concerts": true,
+    "tour_announcements": true,
+    "ticket_sales": true,
+    "festivals": true,
+    "rumors": true
+  }
+}
