@@ -1,32 +1,30 @@
 import os
 from dotenv import load_dotenv
-from telegram.ext import Application
-
-from bot.commands import setup_commands
+from telegram import Bot
 
 
 load_dotenv()
 
 TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
 
 
 def main():
-    if not TOKEN:
-        print("❌ Token Telegram mancante")
+    if not TOKEN or not CHAT_ID:
+        print("❌ Configurazione Telegram mancante")
         return
 
-    application = (
-        Application
-        .builder()
-        .token(TOKEN)
-        .build()
+    bot = Bot(token=TOKEN)
+
+    bot.send_message(
+        chat_id=CHAT_ID,
+        text=(
+            "🤘 Metal Radar avviato!\n\n"
+            "Sistema di monitoraggio concerti operativo."
+        )
     )
 
-    setup_commands(application)
-
-    print("🤘 Metal Radar avviato!")
-
-    application.run_polling()
+    print("✅ Messaggio Telegram inviato")
 
 
 if __name__ == "__main__":
