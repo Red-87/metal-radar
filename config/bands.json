@@ -1,0 +1,64 @@
+{
+  "bands": [
+    {
+      "name": "Metallica",
+      "priority": "high",
+      "genre": "metal",
+      "countries": ["Italy", "Europe"]
+    },
+    {
+      "name": "Iron Maiden",
+      "priority": "high",
+      "genre": "heavy metal",
+      "countries": ["Italy", "Europe"]
+    },
+    {
+      "name": "Guns N' Roses",
+      "priority": "high",
+      "genre": "hard rock",
+      "countries": ["Italy", "Europe"]
+    },
+    {
+      "name": "AC/DC",
+      "priority": "high",
+      "genre": "hard rock",
+      "countries": ["Italy", "Europe"]
+    },
+    {
+      "name": "Ghost",
+      "priority": "high",
+      "genre": "rock metal",
+      "countries": ["Italy", "Europe"]
+    },
+    {
+      "name": "Rammstein",
+      "priority": "high",
+      "genre": "industrial metal",
+      "countries": ["Italy", "Europe"]
+    },
+    {
+      "name": "Slipknot",
+      "priority": "high",
+      "genre": "nu metal",
+      "countries": ["Italy", "Europe"]
+    },
+    {
+      "name": "Judas Priest",
+      "priority": "high",
+      "genre": "heavy metal",
+      "countries": ["Italy", "Europe"]
+    },
+    {
+      "name": "Megadeth",
+      "priority": "high",
+      "genre": "thrash metal",
+      "countries": ["Italy", "Europe"]
+    },
+    {
+      "name": "Pantera",
+      "priority": "high",
+      "genre": "groove metal",
+      "countries": ["Italy", "Europe"]
+    }
+  ]
+}
