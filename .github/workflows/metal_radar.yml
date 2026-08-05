@@ -22,6 +22,8 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: Avvia Metal Radar
-        run: |
-          python main.py
+          - name: Avvia Metal Radar
+  env:
+    TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+  run: |
+    python main.py
