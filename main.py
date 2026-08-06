@@ -1,30 +1,47 @@
 import os
+import requests
 from dotenv import load_dotenv
-from telegram import Bot
 
+from scanner.rss_scanner import scan
 
 load_dotenv()
 
-TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
 
 
-def main():
-    if not TOKEN or not CHAT_ID:
-        print("❌ Configurazione Telegram mancante")
-        return
+def send_message(text):
+    url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
 
-    bot = Bot(token=TOKEN)
-
-    bot.send_message(
-        chat_id=CHAT_ID,
-        text=(
-            "🤘 Metal Radar avviato!\n\n"
-            "Sistema di monitoraggio concerti operativo."
-        )
+    requests.post(
+        url,
+        data={
+            "chat_id": CHAT_ID,
+            "text": text,
+            "disable_web_page_preview": False
+        },
+        timeout=20
     )
 
-    print("✅ Messaggio Telegram inviato")
+
+def main():
+
+    risultati = scan()
+
+    if not risultati:
+        send_message("🤘 Metal Radar\n\nNessuna nuova notizia trovata.")
+        return
+
+    for news in risultati:
+
+        messaggio = (
+            f"🤘 Metal Radar\n\n"
+            f"🎸 {news['band']}\n\n"
+            f"📰 {news['title']}\n\n"
+            f"{news['link']}"
+        )
+
+        send_message(messaggio)
 
 
 if __name__ == "__main__":
